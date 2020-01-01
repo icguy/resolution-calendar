@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
 	private now: moment.Moment;
 	public isComplete: boolean = false;
 	public calendar: Calendar;
+	public isLoading: boolean = true;
 
 	constructor(private db: DbService) {
 
@@ -68,6 +69,7 @@ export class AppComponent implements OnInit {
 				if (day.isCurrent)
 					this.isComplete = day.isCompleted;
 			});
+			this.isLoading = false;
 		});
 	}
 }

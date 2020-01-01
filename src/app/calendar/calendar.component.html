@@ -4,8 +4,8 @@
 			class="day"
 			*ngFor="let day of month.days"
 			[class.current]="day.isCurrent"
-			[class.completed]="day.isCompleted"
-			[class.future]="day.isFuture">
+			[class.completed]="day.isCompleted && !isLoading"
+			[class.future]="day.isFuture || isLoading">
 		</div>
 	</div>
 </div>

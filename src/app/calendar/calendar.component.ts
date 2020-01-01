@@ -10,4 +10,7 @@ export class CalendarComponent {
 
 	@Input()
 	public calendar: Calendar = { months: [] };
+
+	@Input()
+	public isLoading: boolean = true;
 }

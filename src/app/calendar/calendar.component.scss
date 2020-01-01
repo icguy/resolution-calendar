@@ -1,4 +1,5 @@
-$borderWidth: 2px;
+$borderWidth: 1px;
+$squareSize: 10px;
 
 .calendar-container {
 	display: flex;
@@ -6,23 +7,24 @@ $borderWidth: 2px;
 }
 
 .day {
-	width: 10px;
-	height: 10px;
-	background-color: red;
-	margin: 5px;
+	width: $squareSize;
+	height: $squareSize;
+	background-color: #a00;
+	margin: 1px;
 	border: $borderWidth solid transparent;
 	box-sizing: content-box;
+	background-clip: padding-box;
 
 	&.completed {
-		background-color: green;
+		background-color: #0b0;
 	}
 
 	&.current {
-		border: $borderWidth solid purple;
+		border: $borderWidth solid #000;
 	}
 
 	&.future {
-		background-color: grey;
+		background-color: #bbb;
 	}
 }
 
