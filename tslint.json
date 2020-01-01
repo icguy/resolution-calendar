@@ -90,11 +90,11 @@
 			true,
 			"allow-declarations"
 		],
-		"no-input-rename": true,
+		"no-input-rename": false,
 		"no-inputs-metadata-property": true,
 		"no-output-native": true,
 		"no-output-on-prefix": true,
-		"no-output-rename": true,
+		"no-output-rename": false,
 		"no-outputs-metadata-property": true,
 		"no-redundant-jsdoc": true,
 		"no-sparse-arrays": true,

@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import * as moment from "moment";
-import { DbService } from "../db.service";
 
 
 @Component({
@@ -8,35 +7,21 @@ import { DbService } from "../db.service";
 	templateUrl: "./detail.component.html",
 	styleUrls: ["./detail.component.scss"]
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent {
+
 	public currDate: string = "";
-	public isDone: boolean = false;
 
-	private currDateMoment!: moment.Moment;
+	@Input()
+	public isComplete: boolean = false;
 
-	constructor(private db: DbService) {
+	@Output("completed")
+	public completedEmitter: EventEmitter<void> = new EventEmitter();
 
+	constructor() {
+		this.currDate = moment().format("YYYY. MMMM Do, dddd");
 	}
 
-	public ngOnInit(): void {
-		this.updateDate(moment());
-	}
-
-	public next(): void {
-		this.updateDate(this.currDateMoment.add(1, "day"));
-	}
-
-	public prev(): void {
-		this.updateDate(this.currDateMoment.add(-1, "day"));
-	}
-
-	public toggle(): void {
-		this.db.saveDate(this.currDate, !this.isDone).subscribe(resp => this.isDone = resp);
-	}
-
-	private updateDate(date: moment.Moment): void {
-		this.currDate = date.format("YYYY-MM-DD");
-		this.currDateMoment = date;
-		this.db.getDate(this.currDate).subscribe(resp => this.isDone = resp);
+	public complete(): void {
+		this.completedEmitter.emit();
 	}
 }
