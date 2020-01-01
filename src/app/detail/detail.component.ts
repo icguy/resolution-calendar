@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import * as moment from "moment";
-import { DbService } from "./db.service";
+import { DbService } from "../db.service";
+
 
 @Component({
-	selector: "app-root",
-	templateUrl: "./app.component.html",
-	styleUrls: ["./app.component.scss"]
+	selector: "app-detail",
+	templateUrl: "./detail.component.html",
+	styleUrls: ["./detail.component.scss"]
 })
-export class AppComponent implements OnInit {
-
+export class DetailComponent implements OnInit {
 	public currDate: string = "";
 	public isDone: boolean = false;
 

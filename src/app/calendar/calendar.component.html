@@ -1,0 +1,11 @@
+<div class="calendar-container">
+	<div class="month" *ngFor="let month of calendar.months">
+		<div
+			class="day"
+			*ngFor="let day of month.days"
+			[class.current]="day.isCurrent"
+			[class.completed]="day.isCompleted"
+			[class.future]="day.isFuture">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+$borderWidth: 2px;
+
+.calendar-container {
+	display: flex;
+}
+
+.day {
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	margin: 5px;
+	border: $borderWidth solid transparent;
+	box-sizing: content-box;
+
+	&.completed {
+		background-color: green;
+	}
+
+	&.current {
+		border: $borderWidth solid purple;
+	}
+
+	&.future {
+		background-color: grey;
+	}
+}
+
+.month {
+	display: flex;
+	flex-direction: column;
+}
