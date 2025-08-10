@@ -1,0 +1,11 @@
+<h1>Resolution calendar</h1>
+<select [formControl]="targetControl">
+  @for (target of targets; track $index; let first = $first) {
+  <option [value]="target">{{target}}</option>
+  }
+  <option [value]="newTargetValue">(New target)</option>
+  <option [value]="deleteTargetValue">(Delete current)</option>
+</select>
+@if(selectedTarget) {
+  <app-calendar [target]="selectedTarget"></app-calendar>
+}

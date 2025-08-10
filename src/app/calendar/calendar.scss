@@ -1,0 +1,12 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  margin: 0.5rem;
+  display: inline-block;
+
+  &.label {
+    margin-bottom: 0;
+    height: 1rem;
+    text-align: center;
+  }
+}

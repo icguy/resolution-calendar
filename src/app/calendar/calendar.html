@@ -1,0 +1,22 @@
+<div>
+  <button (click)="shift(-1)">left</button>
+  <div>
+    @if(model.year !== currentYear) {
+      {{ model.year }}.
+    }
+    {{ monthNames[model.month - 1] }}
+  </div>
+  <button (click)="shift(1)">right</button>
+</div>
+<div>
+  @for (name of dayNames; track $index) {
+    <div class="cell label">{{name}}</div>
+  }
+</div>
+@for (week of model.weeks; track $index) {
+<div>
+  @for (day of week.days; track $index) {
+    <app-day class="cell" [day]="day" (click)="dayClicked(day)"></app-day>
+  }
+</div>
+}
